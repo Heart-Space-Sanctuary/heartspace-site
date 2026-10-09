@@ -143,50 +143,48 @@ a:hover { color: var(--olive); }
 }
 .give-card p { margin: 6px 0 28px; }
 
-.give-alt { font-size: 15px; margin: 18px 0 0 !important; opacity: .92; }
-.give-alt a, .give-card a:not(.btn) { color: var(--cream); text-underline-offset: 3px; }
 .give-thanks { margin: 14px 0 0 !important; font-size: 15px; }
-.btn-gold-sm { font-size: 19px; padding: 8px 34px; }
+.fund-alt { font-size: 15px; margin: 16px 0 0 !important; }
+.give-card .fund-alt a { color: var(--cream); text-underline-offset: 3px; }
 .btn-quiet { background: transparent; color: var(--olive); border: 1px solid var(--olive); }
 .btn-quiet:hover { background: var(--olive); color: var(--cream); }
-.btn-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px; }
+.btn-olive {
+  background: var(--olive); color: var(--cream); border: 2px solid var(--olive); border-radius: 300px;
+  font-family: var(--font-display); font-size: 22px; padding: 8px 60px;
+}
+.btn-olive:hover { background: var(--olive-dark); border-color: var(--olive-dark); color: var(--cream); }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12px !important; margin: 0 0 8px !important; }
+
+/* Matching call-to-action blocks: same shape, contrasting colors per fund */
+.fund-cta { margin: 40px auto 8px; max-width: 760px; padding: 36px 28px; text-align: center; }
+.fund-cta h3 { font-family: var(--font-display); font-weight: 400; font-size: 36px; line-height: 1.15; margin: 0 0 10px; }
+.fund-cta > p:not(.eyebrow):not(.fund-alt) { margin: 0 auto 24px; max-width: 540px; }
+.fund-cta--hs { background: var(--olive); color: var(--cream); border: 2px solid var(--gold-soft); }
+.fund-cta--hs .eyebrow { color: var(--gold-soft); }
+.fund-cta--hs .fund-alt a { color: var(--cream); text-underline-offset: 3px; }
+.fund-cta--vh { background: var(--cream); color: var(--olive); border: 2px solid var(--olive); }
+.fund-cta--vh .eyebrow { color: var(--gold); }
+.fund-cta--vh .fund-alt a { color: var(--olive); text-underline-offset: 3px; }
 
 /* ---------- Giving page ---------- */
-.give-page { max-width: 1060px; margin: 0 auto; display: grid; gap: 36px; }
+.give-page { max-width: 820px; margin: 0 auto; display: grid; gap: 32px; }
 .give-head .page-intro { max-width: 640px; margin: 0 auto; font-size: 20px; }
-.give-grid {
-  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 28px;
-  background: rgba(255, 248, 241, .94); padding: 28px; border: 1px solid var(--sand);
+.give-form-card {
+  background: rgba(255, 248, 241, .96); border: 1px solid var(--sand);
+  padding: 32px 32px 24px; text-align: center;
 }
-.give-embed { min-width: 0; }
-.give-embed iframe { display: block; width: 100%; height: 980px; border: 0; background: #fff; }
-.give-fallback { font-size: 14px; text-align: center; margin: 10px 0 0; }
-.give-side { display: grid; gap: 0; align-content: start; }
-.give-option { padding: 20px 4px; border-bottom: 1px solid var(--sand); }
-.give-option:first-child { padding-top: 4px; }
-.give-option:last-child { border-bottom: 0; }
-.give-option h2 { font-family: var(--font-display); font-weight: 500; font-size: 28px; margin: 0 0 6px; color: var(--olive); }
-.give-option p { font-size: 16px; margin: 0 0 12px; }
-.give-option .btn { padding: 9px 22px; font-size: 15px; }
-.fund-card {
-  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px;
-  background: var(--olive); color: var(--cream); border: 2px solid var(--gold-soft); padding: 32px 36px;
+.give-form-card .eyebrow { color: var(--gold); }
+.give-form-card h2 { font-family: var(--font-display); font-weight: 400; font-size: 36px; margin: 0 0 6px; color: var(--olive); }
+.give-form-note { font-size: 16px; margin: 0 0 20px; }
+.give-form-card iframe { display: block; width: 100%; max-width: 620px; height: 980px; margin: 0 auto; border: 0; background: #fff; }
+.give-fallback { font-size: 14px; margin: 10px 0 0; }
+.give-cash {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 18px;
+  margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--sand); font-size: 16px;
 }
-.fund-card > div:first-child { flex: 1 1 380px; min-width: 0; }
-.fund-card h2 { font-family: var(--font-display); font-weight: 400; font-size: 34px; margin: 0 0 8px; }
-.fund-card p { margin: 0; font-size: 16px; }
-.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12px !important; color: var(--gold-soft); margin-bottom: 6px !important; }
-.fund-actions { display: grid; gap: 10px; justify-items: center; }
-.fund-more { color: var(--cream); font-size: 15px; text-underline-offset: 3px; }
-.fund-more:hover { color: var(--gold-soft); }
+.give-cash .btn { padding: 8px 22px; font-size: 15px; }
+.give-page .fund-cta { margin: 0; max-width: none; }
 .give-questions { text-align: center; font-size: 15px; margin: 0; }
-.fund-cta {
-  margin: 36px 0 8px; padding: 32px 28px; text-align: center;
-  background: var(--olive); color: var(--cream); border: 2px solid var(--gold-soft);
-}
-.fund-cta h3 { font-family: var(--font-display); font-weight: 400; font-size: 34px; margin: 0 0 8px; }
-.fund-cta p { margin: 0 auto 22px; max-width: 520px; }
-.fund-cta .give-alt a { color: var(--cream); }
 
 /* ---------- Page headings ---------- */
 .page-title {
@@ -248,9 +246,9 @@ a:hover { color: var(--olive); }
   .page-title { font-size: 40px; }
   .give-card h2, .give-card h1 { font-size: 34px; }
   .btn-gold { padding: 8px 40px; }
-  .btn-gold-sm { padding: 8px 26px; font-size: 18px; }
-  .give-grid { grid-template-columns: 1fr; padding: 16px; }
-  .give-embed iframe { height: 1060px; }
-  .fund-card { padding: 26px 22px; text-align: center; justify-content: center; }
-  .fund-card h2 { font-size: 28px; }
+  .btn-olive { padding: 8px 40px; }
+  .fund-cta { padding: 28px 20px; }
+  .fund-cta h3 { font-size: 30px; }
+  .give-form-card { padding: 24px 14px 18px; }
+  .give-form-card iframe { height: 1060px; }
 }
