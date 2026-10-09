@@ -33,7 +33,7 @@ The header and footer are repeated in each page, so a menu change goes in all fi
    ```
 
 ### 2. Deploy on Cloudflare Pages (free)
-1. Sign up at dash.cloudflare.com with info@heartspacesanctuary.love.
+1. Sign up at dash.cloudflare.com with theheartspacesanctuary@gmail.com.
 2. Workers & Pages → Create → Pages → Connect to Git → pick `heartspace-site`.
 3. Build settings: Framework preset **None**, build command **blank**, output directory **/**.
 4. Deploy. You get a preview address like `heartspace-site.pages.dev`. Check every page there.
@@ -42,7 +42,7 @@ The header and footer are repeated in each page, so a menu change goes in all fi
 - **Donations:** in Zeffy, create (or open) the Heart Space Sanctuary general donation form.
   Paste its link into `donateUrl` in `assets/site.js`. For the form to appear on the
   Donate page itself, also paste the embed address into `donateEmbedUrl`.
-- **Contact and email signup:** go to web3forms.com, enter info@heartspacesanctuary.love,
+- **Contact and email signup:** go to web3forms.com, enter theheartspacesanctuary@gmail.com,
   and paste the access key they email you into `web3formsKey`. Until then, the forms open
   the visitor's own email app instead. (Free plan, no monthly cost.)
 - Commit and push. Cloudflare redeploys in about a minute.
