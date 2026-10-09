@@ -16,7 +16,7 @@ const SITE = {
   // the visitor's email app addressed to the email below.
   web3formsKey: "",
 
-  contactEmail: "info@heartspacesanctuary.love",
+  contactEmail: "theheartspacesanctuary@gmail.com",
 };
 
 /* ---------- Mobile menu ---------- */
