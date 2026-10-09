@@ -1,18 +1,11 @@
 /* ============================================================
    Heart Space Sanctuary: site settings
    These are the only values you normally need to edit.
+   Giving links live directly in the pages: index.html, missions.html, donate.html.
    ============================================================ */
 const SITE = {
-  // Zeffy donation form link for Heart Space Sanctuary (paste from Zeffy: Share > Link).
-  // Leave empty until the form exists; Donate buttons then go to /donate.
-  donateUrl: "",
-
-  // Optional: Zeffy's embed link for the same form (Zeffy: Share > Embed, copy the
-  // https address inside the iframe code). When set, /donate shows the form on the page.
-  donateEmbedUrl: "",
-
   // Free form-to-email service (web3forms.com). Create a free access key for
-  // info@heartspacesanctuary.love and paste it here. Until then, forms open
+  // theheartspacesanctuary@gmail.com and paste it here. Until then, forms open
   // the visitor's email app addressed to the email below.
   web3formsKey: "",
 
@@ -27,24 +20,6 @@ document.querySelectorAll(".menu-toggle").forEach((btn) => {
     btn.setAttribute("aria-expanded", String(open));
   });
 });
-
-/* ---------- Donate links ---------- */
-if (SITE.donateUrl) {
-  document.querySelectorAll("[data-donate]").forEach((a) => {
-    a.href = SITE.donateUrl;
-    a.target = "_blank";
-    a.rel = "noopener";
-  });
-}
-if (SITE.donateEmbedUrl) {
-  const frame = document.getElementById("donate-frame");
-  if (frame) {
-    frame.src = SITE.donateEmbedUrl;
-    frame.hidden = false;
-    const pending = document.getElementById("donate-pending");
-    if (pending) pending.hidden = true;
-  }
-}
 
 /* ---------- Forms (contact + email signup) ---------- */
 document.querySelectorAll("form[data-form]").forEach((form) => {
