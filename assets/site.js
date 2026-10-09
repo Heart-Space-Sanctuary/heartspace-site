@@ -7,7 +7,7 @@ const SITE = {
   // Free form-to-email service (web3forms.com). Create a free access key for
   // theheartspacesanctuary@gmail.com and paste it here. Until then, forms open
   // the visitor's email app addressed to the email below.
-  web3formsKey: "",
+  web3formsKey: "bd103baf-58e0-4b8d-a769-8fcb1e83a6ac",
 
   contactEmail: "theheartspacesanctuary@gmail.com",
 };
