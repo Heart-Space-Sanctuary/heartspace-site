@@ -1,0 +1,5 @@
+# Old Wix page addresses -> new pages (keeps old links and search results working)
+/team-4          /guides     301
+/single-project  /missions   301
+/store           /           302
+/home            /           301

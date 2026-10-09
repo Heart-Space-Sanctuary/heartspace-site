@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://heartspacesanctuary.love/sitemap.xml

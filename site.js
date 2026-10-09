@@ -1,0 +1,88 @@
+/* ============================================================
+   Heart Space Sanctuary: site settings
+   These are the only values you normally need to edit.
+   ============================================================ */
+const SITE = {
+  // Zeffy donation form link for Heart Space Sanctuary (paste from Zeffy: Share > Link).
+  // Leave empty until the form exists; Donate buttons then go to /donate.
+  donateUrl: "",
+
+  // Optional: Zeffy's embed link for the same form (Zeffy: Share > Embed, copy the
+  // https address inside the iframe code). When set, /donate shows the form on the page.
+  donateEmbedUrl: "",
+
+  // Free form-to-email service (web3forms.com). Create a free access key for
+  // info@heartspacesanctuary.love and paste it here. Until then, forms open
+  // the visitor's email app addressed to the email below.
+  web3formsKey: "",
+
+  contactEmail: "info@heartspacesanctuary.love",
+};
+
+/* ---------- Mobile menu ---------- */
+document.querySelectorAll(".menu-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const nav = document.getElementById(btn.getAttribute("aria-controls"));
+    const open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+  });
+});
+
+/* ---------- Donate links ---------- */
+if (SITE.donateUrl) {
+  document.querySelectorAll("[data-donate]").forEach((a) => {
+    a.href = SITE.donateUrl;
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+}
+if (SITE.donateEmbedUrl) {
+  const frame = document.getElementById("donate-frame");
+  if (frame) {
+    frame.src = SITE.donateEmbedUrl;
+    frame.hidden = false;
+    const pending = document.getElementById("donate-pending");
+    if (pending) pending.hidden = true;
+  }
+}
+
+/* ---------- Forms (contact + email signup) ---------- */
+document.querySelectorAll("form[data-form]").forEach((form) => {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const status = form.querySelector(".form-status");
+    const data = new FormData(form);
+    if (data.get("botcheck")) return; // spam trap
+
+    const subject = form.dataset.form === "signup"
+      ? "New email signup: Heart Space Sanctuary website"
+      : "New message: Heart Space Sanctuary website";
+
+    if (!SITE.web3formsKey) {
+      const lines = [];
+      for (const [k, v] of data.entries()) if (k !== "botcheck" && v) lines.push(`${k}: ${v}`);
+      window.location.href =
+        `mailto:${SITE.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+      return;
+    }
+
+    data.append("access_key", SITE.web3formsKey);
+    data.append("subject", subject);
+    data.append("from_name", "Heart Space Sanctuary website");
+    status.textContent = "Sending…";
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
+      const json = await res.json();
+      if (json.success) {
+        form.reset();
+        status.textContent = form.dataset.form === "signup"
+          ? "Thank you! You're on the list."
+          : "Thank you! We look forward to connecting.";
+      } else {
+        throw new Error(json.message || "Send failed");
+      }
+    } catch (err) {
+      status.innerHTML = `Something went wrong. Please email us at <a href="mailto:${SITE.contactEmail}">${SITE.contactEmail}</a>.`;
+    }
+  });
+});
