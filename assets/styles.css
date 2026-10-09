@@ -84,7 +84,7 @@ a:hover { color: var(--olive); }
 .hero { position: relative; background: var(--sand); }
 .hero img { width: 100%; height: auto; }
 .hero-actions {
-  position: absolute; left: 0; right: 0; bottom: 10.5%;
+  position: absolute; left: 0; right: 0; bottom: 18%;
   display: flex; justify-content: center; gap: 22%;
 }
 .hero-actions .btn { padding: 8px 24px; font-size: 14px; }
@@ -192,7 +192,7 @@ a:hover { color: var(--olive); }
   .nav.open { display: flex; }
   .nav a { padding: 14px 24px; width: 100%; text-align: center; font-size: 18px; }
   .header-social { display: none; }
-  .hero-actions { bottom: 10%; gap: 12px; }
+  .hero-actions { bottom: 17%; gap: 12px; }
   .hero-actions .btn { padding: 4px 12px; font-size: 12px; }
   .card { padding: 32px 22px; }
   .card h2 { font-size: 28px; }
