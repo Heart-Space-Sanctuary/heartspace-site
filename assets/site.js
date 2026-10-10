@@ -21,6 +21,17 @@ document.querySelectorAll(".menu-toggle").forEach((btn) => {
   });
 });
 
+/* ---------- Booking links from the Guides page ---------- */
+// /contact?guide=aluminea (or kevin) pre-fills the contact form.
+const GUIDES = { aluminea: "Aluminea", kevin: "Kevin" };
+const guide = GUIDES[new URLSearchParams(location.search).get("guide")];
+if (guide) {
+  const topic = document.getElementById("c-topic");
+  const msg = document.getElementById("c-msg");
+  if (topic) topic.value = "Sessions with a guide";
+  if (msg && !msg.value) msg.value = `I'd like to book a session with ${guide}.\n\n`;
+}
+
 /* ---------- Forms (contact + email signup) ---------- */
 document.querySelectorAll("form[data-form]").forEach((form) => {
   form.addEventListener("submit", async (e) => {
